@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{83DBF1
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backgram.Core", "Backgram.Core\Backgram.Core.csproj", "{7D03038E-23F4-4AB0-AC95-0CD56CA486EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{072ACF98-B213-409C-8AE2-43578EFF104D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{072ACF98-B213-409C-8AE2-43578EFF104D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{072ACF98-B213-409C-8AE2-43578EFF104D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D03038E-23F4-4AB0-AC95-0CD56CA486EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D03038E-23F4-4AB0-AC95-0CD56CA486EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D03038E-23F4-4AB0-AC95-0CD56CA486EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D03038E-23F4-4AB0-AC95-0CD56CA486EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
