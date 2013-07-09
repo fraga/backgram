@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Backgram.Core.Util
+
+@{
     Layout = null;
 }
 
@@ -14,5 +16,5 @@
         @RenderBody()
     </div>
 </body>
-    BackGram v.@Backgram.Core.Util.AssemblyUtil.GetVersion()
+    BackGram v.@AssemblyUtil.GetVersion()
 </html>
