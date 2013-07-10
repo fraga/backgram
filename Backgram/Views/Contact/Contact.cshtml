@@ -1,0 +1,29 @@
+﻿@model Backgram.Models.Contact
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+<form class="well span8">
+  <div class="row">
+        
+      <legend class="span8">Contact BackGram</legend>
+  		<div class="span3">                
+			<label>First Name</label>
+			<input type="text" class="span3" placeholder="Your First Name">
+			<label>Last Name</label>
+			<input type="text" class="span3" placeholder="Your Last Name">
+			<label>Email Address</label>
+			<input type="text" class="span3" placeholder="Your email address">
+          	<label>Subject</label>
+            <input type="text" class="span3" placeholder="Subject">
+		</div>
+		<div class="span5">
+			<label>Message</label>
+			<textarea name="message" id="message" class="input-xlarge span5" rows="10"></textarea>
+		</div>
+	
+		<button type="submit" class="btn btn-primary pull-right">Send</button>
+	</div>
+</form>
