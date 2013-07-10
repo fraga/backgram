@@ -54,9 +54,14 @@
     <div class="container-narrow">
         @Html.Partial("_HeaderPartial")
         @RenderBody()
+        <div class="footer">
+            @Html.Partial("_FooterPartial")
+        </div>
+
     </div>
 
 </body>
     <script src="~/Scripts/jquery-1.9.1.js"></script>
-    @Html.Partial("_FooterPartial")
+
+    
 </html>
