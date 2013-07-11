@@ -62,7 +62,6 @@
         <p class="lead">Connection with Instagram successful! Right now search and choose which photos do you want to download!</p>
 
         <div class="photos">
-          Here we should present a search filter and photos as thumbnails!
         </div>
     </div>
 
@@ -79,9 +78,26 @@
   <script type="text/javascript">
 
 
-      function listUserPhotos(data) {
+      function listUserPhotos(resp) {
           console.log('listing photos...');
-          console.log(data);
+          console.log(resp);
+
+          var thumbnail = null;
+          var img = null;
+
+          if (resp && resp.data.length > 0) {
+              $.each(resp.data, function () {
+                  console.log(this);
+                  thumbnail = this.images['thumbnail'];
+                  img = $(document.createElement('img'));
+                  img.attr('src', thumbnail.url);
+                  img.attr('width', thumbnail.width);
+                  img.attr('height', thumbnail.height);
+
+                  console.log(img);
+                  $('.photos').append(img);
+              });
+          }
       }
 
       $(function () {
