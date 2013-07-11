@@ -7,6 +7,13 @@ namespace Backgram.Tests.Compress
     [TestClass]
     public class ZiplibTest
     {
+        private TestContext _testContext;
+
+        public ZiplibTest(TestContext context)
+        {
+            _testContext = context;
+        }
+
         [TestMethod]
         public void TestConstructorNotNull()
         {
