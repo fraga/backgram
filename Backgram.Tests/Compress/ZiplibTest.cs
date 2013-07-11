@@ -1,18 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Backgram.Compress;
+using System.IO;
 
 namespace Backgram.Tests.Compress
 {
     [TestClass]
     public class ZiplibTest
     {
-        private TestContext _testContext;
-
-        public ZiplibTest(TestContext context)
-        {
-            _testContext = context;
-        }
+        public TestContext Context { get; set; }
 
         [TestMethod]
         public void TestConstructorNotNull()
