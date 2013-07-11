@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    <title>BackGram</title>
+</head>
+<body>
+  <div class="container-narrow">
+    <div class="masthead">
+      <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+      <h3 class="muted">BackGram</h3>
+    </div>
+
+    <hr>
+
+    <div class="jumbotron">
+        <h1>Oopsss!</h1>
+        <p class="lead">An error has occurred!</p>
+
+        <div class="error"></div>
+    </div>
+
+    <div>
+      <p><b>BackGram:</b> <span class="label label-info">v.1.0.4938.8669 - development version</span></p>
+    </div>
+
+  </div>
+
+  <script src="assets/js/jquery-1.9.1.js"></script>
+  <script src="assets/js/backgram.js"></script>
+  <script src="assets/js/backgram_tools.js"></script>
+  <script src="assets/js/backgram_instagram.js"></script>
+  <script type="text/javascript">
+
+  console.log('error is: ' + backgram.tools.getUriParameter('error'));
+  console.log('error_reason is: ' + backgram.tools.getUriParameter('error_reason'));
+  console.log('error_description is: ' + backgram.tools.getUriParameter('error_description'));
+
+  $(function() {
+    error = $(document.createElement('p'));
+    error_reason = $(document.createElement('p'));
+    error_description = $(document.createElement('p'));
+
+    $('.error')
+      .append(error.html('error is: ' + backgram.instagram.getError().error_code))
+      .append(error_reason.html('error_reason is: ' + backgram.instagram.getError().error_reason))
+      .append(error_description.html('error_description is: ' + backgram.instagram.getError().error_description));
+  });
+
+  </script>
+
+</body>
+
+</html>
