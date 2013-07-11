@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BackGram</title>
+</head>
+<body>
+  <div class="container-narrow">
+
+    Redirecting to BackGram...
+
+    <div>
+      <p><b>BackGram:</b> <span class="label label-info">v.1.0.4938.8669 - development version</span></p>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-1.9.1.js"></script>
+  <script src="assets/js/backgram.js"></script>
+  <script src="assets/js/backgram_tools.js"></script>
+  <script src="assets/js/backgram_instagram.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    var access_token = backgram.instagram.getAccessToken();
+
+    console.log('access_token is: ' + access_token);
+
+    var next_uri = 'error.html';
+    if(access_token) {
+      next_uri = 'step2.html';
+    }
+    window.location.replace(backgram.base_uri + next_uri + location.search + location.hash);
+  });
+
+  </script>
+
+</body>
+
+</html>

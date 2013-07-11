@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    <title>BackGram</title>
+</head>
+<body>
+  <div class="container-narrow">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">BackGram</h3>
+    </div>
+
+    <hr>
+
+    <div class="jumbotron">
+        <h1>Step 1</h1>
+        <p class="lead">Firstly, you have to login with you Instagram account. Clicking the button below, will redirect you to Instagram, unless you are already logged in there.</p>
+        <a class="btn btn-large btn-success" href="#">Enter your Instagram account >></a>
+    </div>
+
+    <div>
+      <p><b>BackGram:</b> <span class="label label-info">v.1.0.4938.8669 - development version</span></p>
+    </div>
+
+  </div>
+
+  <script src="assets/js/jquery-1.9.1.js"></script>
+  <script src="assets/js/backgram.js"></script>
+  <script src="assets/js/backgram_tools.js"></script>
+  <script src="assets/js/backgram_instagram.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    $('.btn-success').on('click', function(e) {
+      console.log('clicked');
+      e.preventDefault();
+      window.location.href = backgram.instagram.getOAuthUri();
+    });
+  });
+
+  </script>
+
+</body>
+
+</html>
