@@ -106,6 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compress\ZiplibTest.cs" />
     <Compile Include="Core\Util\AssemblyUtilTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +117,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Backgram.Compress\Backgram.Compress.csproj">
+      <Project>{6a9402ec-b454-45f6-b46f-ed103d56ff13}</Project>
+      <Name>Backgram.Compress</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Backgram.Core\Backgram.Core.csproj">
       <Project>{7d03038e-23f4-4ab0-ac95-0cd56ca486eb}</Project>
       <Name>Backgram.Core</Name>
