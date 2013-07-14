@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ICSharpCode.SharpZipLib;
+using System.IO;
+using ICSharpCode.SharpZipLib.BZip2;
+
 
 
 namespace Backgram.Compress
 {
     public class Ziplib
     {
-        private string _directory;
+        private string _dirToCompress;
 
         public Ziplib()
         {
         }
 
-        public Ziplib(string dir)
+        public Ziplib(string dirToCompress)
         {
-            this._directory = dir;
+            this._dirToCompress = dirToCompress;
         }
 
         public void Compress()
