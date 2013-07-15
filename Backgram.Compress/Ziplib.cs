@@ -57,23 +57,25 @@ namespace Backgram.Compress
         {
             try
             {
-                FileStream outputFile = new FileStream(fileOutputPath, FileMode.Create);
-                ZipOutputStream outputCompressed = new ZipOutputStream(outputFile);
-
-                if (!string.IsNullOrEmpty(DirToCompress) && Directory.Exists(DirToCompress))
+                using (FileStream outputFile = new FileStream(fileOutputPath, FileMode.Create))
                 {
-                    var files = new DirectoryInfo(DirToCompress).GetFiles();
+                    ZipOutputStream outputCompressed = new ZipOutputStream(outputFile);
 
-                    foreach (var file in files)
+                    if (!string.IsNullOrEmpty(DirToCompress) && Directory.Exists(DirToCompress))
                     {
-                        FileStream fileStream = new FileStream(file.FullName, FileMode.Open);
-                        outputCompressed.PutNextEntry(new ZipEntry(file.Name));
-                        fileStream.CopyTo(outputCompressed);
-                    }
-                }
+                        var files = new DirectoryInfo(DirToCompress).GetFiles();
 
-                outputCompressed.IsStreamOwner = true;
-                outputCompressed.Close();
+                        foreach (var file in files)
+                        {
+                            FileStream fileStream = new FileStream(file.FullName, FileMode.Open);
+                            outputCompressed.PutNextEntry(new ZipEntry(file.Name));
+                            fileStream.CopyTo(outputCompressed);
+                        }
+                    }
+
+                    outputCompressed.IsStreamOwner = true;
+                    outputCompressed.Close();
+                }
             }
             catch (OutOfMemoryException exception)
             {
