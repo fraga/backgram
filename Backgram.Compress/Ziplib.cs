@@ -25,6 +25,31 @@ namespace Backgram.Compress
         }
 
         /// <summary>
+        /// Calculates a file checksum
+        /// </summary>
+        /// <param name="pathToFile">Full path to the file</param>
+        /// <returns></returns>
+        public string CalculateCheckSum(string pathToFile)
+        {
+            Crc32 crc32 = new Crc32();
+            string checksum = string.Empty;
+
+            try
+            {
+                FileStream fileStream = new FileStream(pathToFile, FileMode.Open);
+                byte[] fileBuffer = new byte[fileStream.Length];
+                fileStream.Read(fileBuffer, 0, fileBuffer.Length);
+                crc32.Update(fileBuffer, 0, fileBuffer.Length);
+                checksum = crc32.Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
+
+            return checksum;
+        }
+
+        /// <summary>
         /// Compress the folder set in the DirToCompress property
         /// </summary>
         /// <param name="fileOutputPath">The zipped file</param>
