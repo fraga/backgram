@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using ICSharpCode.SharpZipLib.BZip2;
 using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.Checksums;
 
 
 
@@ -54,7 +54,7 @@ namespace Backgram.Compress
             {
                 throw exception;
             }
-            catch (BZip2Exception exception)
+            catch (ZipException exception)
             {
                 throw exception;
             }
