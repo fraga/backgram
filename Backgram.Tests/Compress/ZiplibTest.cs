@@ -59,7 +59,7 @@ namespace Backgram.Tests.Compress
         }
 
         [TestMethod]
-        public void TestCompress()
+        public void TestCompressGeneratesZipFile()
         {
             var compressedFileName = Path.Combine(TestContext.TestRunDirectory, "testFiles.zip");
             Ziplib ziplib = new Ziplib(Path.Combine(testDir));
