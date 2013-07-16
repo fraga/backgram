@@ -66,5 +66,20 @@ namespace Backgram.Tests.Compress
             ziplib.Compress(compressedFileName);
             Assert.IsTrue(File.Exists(compressedFileName));
         }
+
+        [TestMethod]
+        public void TestCalculateCheckSum()
+        {
+            Ziplib ziplib = new Ziplib();
+            var filePath = Path.Combine(testDir, "file.txt");
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("this is a test");
+                writer.Close();
+            }
+            var checksum = ziplib.CalculateCheckSum(filePath);
+            Assert.AreEqual("2388517903", checksum);
+
+        }
     }
 }
