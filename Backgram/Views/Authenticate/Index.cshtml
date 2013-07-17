@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <h1>Step 1</h1>
+    <p class="lead">Firstly, you have to login with you Instagram account. Clicking the button below, will redirect you to Instagram, unless you are already logged in there.</p>
+    <a class="btn btn-large btn-success" href="#">Connect to Instagram >></a>
+</div>
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(function () {
+            $('.btn-success').on('click', function (e) {
+                console.log('clicked');
+                e.preventDefault();
+                window.location.href = backgram.instagram.getOAuthUri();
+            });
+        });
+
+  </script>
+}
