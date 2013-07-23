@@ -15,6 +15,7 @@ namespace Backgram
         {
             bundles.Add(new ScriptBundle(BundleConfig.BundlesJs)
                 .Include("~/Scripts/jquery-{version}.js")
+                .Include("~/Scripts/jquery.cookie.js")
                 .Include("~/Scripts/backgram.js")
                 .Include("~/Scripts/backgram_tools.js")
                 .Include("~/Scripts/backgram_instagram.js"));
