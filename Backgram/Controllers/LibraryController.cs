@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace Backgram.Controllers
 {
-    public class AuthenticateController : Controller
+    public class LibraryController : Controller
     {
         //
-        // GET: /Authenticate/
+        // GET: /Library/List
 
-        public ActionResult Index()
+        public ActionResult List()
         {
             return View();
         }
