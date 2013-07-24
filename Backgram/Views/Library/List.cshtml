@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Your photos";
+}
+    <div class="jumbotron">
+        <h1>Step 2</h1>
+        <p class="lead">Connection with Instagram successful! Right now search and choose which photos do you want to download!</p>
+
+        <div class="photos">
+        </div>
+    </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function listUserPhotos(resp) {
+            console.log('listing photos...');
+            console.log(resp);
+
+            var thumbnail = null;
+            var img = null;
+
+            if (resp && resp.data.length > 0) {
+                $.each(resp.data, function () {
+                    console.log(this);
+                    thumbnail = this.images['thumbnail'];
+                    img = $(document.createElement('img'));
+                    img.attr('src', thumbnail.url);
+                    img.attr('width', thumbnail.width);
+                    img.attr('height', thumbnail.height);
+                    img.addClass('photo');
+
+                    console.log(img);
+                    $('.photos').append(img);
+                });
+            }
+        }
+
+        $(function () {
+            backgram.instagram.photo.getAll('', 'listUserPhotos');
+        });
+    </script>
+}
