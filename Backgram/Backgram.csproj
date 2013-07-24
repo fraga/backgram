@@ -128,7 +128,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\AuthenticateController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
@@ -201,7 +201,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
-    <Content Include="Views\Authenticate\Index.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
     <Content Include="Views\Library\List.cshtml" />
   </ItemGroup>
   <ItemGroup>

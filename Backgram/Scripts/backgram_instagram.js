@@ -1,11 +1,11 @@
 backgram.instagram = {
   client_id: '5c66b3716ea04b598ff6639ed7f09784',
-  redirect_uri: backgram.base_uri + 'Authenticate/RedirectUri',
+  redirect_uri: backgram.base_uri + 'Auth/RedirectUri',
   base_oauth_uri: 'https://instagram.com/oauth/authorize/',
   base_api_uri: 'https://api.instagram.com/v1/',
   
   getOAuthUri: function() {
-    return (this.base_oauth_uri + '?client_id='+this.client_id+'&redirect_uri='+this.redirect_uri+'&response_type=token&scope=basic');
+    return (this.base_oauth_uri + '?client_id='+this.client_id+'&redirect_uri='+this.redirect_uri+'&response_type=code&scope=basic');
   },
   getAccessToken: function () {
     return $.cookie('access_token');
