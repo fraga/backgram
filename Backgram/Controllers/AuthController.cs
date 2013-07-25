@@ -20,17 +20,6 @@ namespace Backgram.Controllers
             return View();
         }
 
-        //public ActionResult Instagram()
-        //{
-        //    var client = new HttpClient();
-        //    client.BaseAddress = new Uri("https://api.instagram.com/oauth/authorize/");
-        //    var param = string.Format("?client_id={0}&redirect_uri={1}&response_type=code",
-        //        "5c66b3716ea04b598ff6639ed7f09784",
-        //        Url.Action("RedirectUri", null, null, this.Request.Url.Scheme));
-
-        //    var response = client.GetAsync(param).Result;
-        //}
-
         public async Task<RedirectToRouteResult> RedirectUri()
         {
             var code = this.GetCode(this.Request);
