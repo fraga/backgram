@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Backgram.Tests.Core
@@ -70,8 +71,8 @@ namespace Backgram.Tests.Core
             Assert.IsTrue(file != null && file.Exists);
         }
 
-        [Ignore]
-        public void DownloadFilesShouldDownloadAllFiles()
+        [TestMethod]
+        public void DownloadFilesShouldDownloadAllFilesAsync()
         {
             Downloader downloader = new Downloader();
             var localDir = Directory.CreateDirectory(Path.Combine(testDir, "testDownloadFilesToDir"));
@@ -87,7 +88,9 @@ namespace Backgram.Tests.Core
 
             try
             {
-                resultList = downloader.DownloadFiles(uriList, localDir.FullName); //TODO: change to file://
+                resultList = Task.Run(() => downloader.DownloadFiles(uriList, localDir.FullName)).Result;
+
+                Thread.Sleep(new TimeSpan(0, 0, 1));
             }
             catch (Exception e)
             {

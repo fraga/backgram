@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -21,7 +22,10 @@ namespace Backgram.Core
                 {
                     await DownloadFileAsync(
                         u, Path.Combine(destinationDirPath, Guid.NewGuid().ToString())).ContinueWith(
-                            async f => downloadedFiles.Add(await f));
+                            async f =>
+                            {
+                                downloadedFiles.Add(await f);
+                            });
 
                 }
                 );
