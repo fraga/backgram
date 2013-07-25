@@ -5,37 +5,57 @@
         <h1>Step 2</h1>
         <p class="lead">Connection with Instagram successful! Right now search and choose which photos do you want to download!</p>
 
-        <div class="photos">
+        <div class="photos row-fluid">
+            <ul class="thumbnails">
+            </ul>
         </div>
+
+        <ul class="pager">
+            <li><a href="#" class="next">show more</a></li>
+        </ul>        
     </div>
 
 @section Scripts {
+    <script id="tmpl-photos" type="text/template">
+        {{#data}}
+            <li class="span3">
+                <div class="thumbnail">
+                    <a href="#">
+                        <img data-id="{{id}}" src="{{{images.thumbnail.url}}}" width="{{images.thumbnail.width}}" height="{{images.thumbnail.height}}" />
+                    </a>
+                </div>
+            </li>
+        {{/data}}
+    </script>
+
     <script type="text/javascript">
         function listUserPhotos(resp) {
             console.log('listing photos...');
             console.log(resp);
 
-            var thumbnail = null;
-            var img = null;
-
             if (resp && resp.data.length > 0) {
-                $.each(resp.data, function () {
-                    console.log(this);
-                    thumbnail = this.images['thumbnail'];
-                    img = $(document.createElement('img'));
-                    img.attr('src', thumbnail.url);
-                    img.attr('width', thumbnail.width);
-                    img.attr('height', thumbnail.height);
-                    img.addClass('photo');
+                var photos = Mustache.render($('#tmpl-photos').html(), resp);
+                $('.thumbnails').append(photos);
 
-                    console.log(img);
-                    $('.photos').append(img);
-                });
+                var nextButton = $('.next');
+                nextButton.off('click');
+                if (resp.pagination && resp.pagination.next_max_id) {
+                    nextButton.click(function (e) {
+                        e.preventDefault();
+                        backgram.spinner.spin($('.photos')[0]);
+                        backgram.instagram.photo.getRecents('listUserPhotos', { maxId: resp.pagination.next_max_id });
+                    });
+                } else {
+                    nextButton.parent().addClass('disabled');
+                }
             }
+
+            backgram.spinner.stop();
         }
 
         $(function () {
-            backgram.instagram.photo.getAll('', 'listUserPhotos');
+            backgram.spinner.spin($('.photos')[0]);
+            backgram.instagram.photo.getRecents('listUserPhotos');
         });
     </script>
 }

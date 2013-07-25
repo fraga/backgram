@@ -180,6 +180,8 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\mustache.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Views\Shared\_FooterPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
