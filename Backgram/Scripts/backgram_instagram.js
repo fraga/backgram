@@ -18,26 +18,14 @@ backgram.instagram = {
     };
   },
 
-  user: {
-    getBasicInfo: function() {
-      var result = {};
-
-      $.getJSON(backgram.instagram.base_api_uri + 'users/self/', 
-        { access_token: backgram.instagram.getAccessToken() }, 
-        function(data) {
-          result = data;
-      });
-
-      return result;
-    }
-  },
-
   photo: {
-      getAll: function (filter, callback) {
+      getRecents: function (callback, settings) {
+          var that = this;
           $.ajax({
               url: backgram.instagram.base_api_uri + 'users/self/media/recent/',
               data: {
                   access_token: backgram.instagram.getAccessToken(),
+                  max_id: (settings && settings.maxId) ? settings.maxId : '',
                   count: 20
               },
               dataType: "jsonp",

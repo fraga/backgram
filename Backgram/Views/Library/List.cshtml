@@ -6,12 +6,17 @@
         <p class="lead">Connection with Instagram successful! Right now search and choose which photos do you want to download!</p>
 
         <div class="photos row-fluid">
+            <ul class="thumbnails">
+            </ul>
         </div>
+
+        <ul class="pager">
+            <li><a href="#" class="next">show more</a></li>
+        </ul>        
     </div>
 
 @section Scripts {
     <script id="tmpl-photos" type="text/template">
-        <ul class="thumbnails">
         {{#data}}
             <li class="span3">
                 <div class="thumbnail">
@@ -21,7 +26,6 @@
                 </div>
             </li>
         {{/data}}
-        </ul>
     </script>
 
     <script type="text/javascript">
@@ -29,12 +33,21 @@
             console.log('listing photos...');
             console.log(resp);
 
-            var thumbnail = null;
-            var img = null;
-
             if (resp && resp.data.length > 0) {
                 var photos = Mustache.render($('#tmpl-photos').html(), resp);
-                $('.photos').html(photos);
+                $('.thumbnails').append(photos);
+
+                var nextButton = $('.next');
+                nextButton.off('click');
+                if (resp.pagination && resp.pagination.next_max_id) {
+                    nextButton.click(function (e) {
+                        e.preventDefault();
+                        backgram.spinner.spin($('.photos')[0]);
+                        backgram.instagram.photo.getRecents('listUserPhotos', { maxId: resp.pagination.next_max_id });
+                    });
+                } else {
+                    nextButton.parent().addClass('disabled');
+                }
             }
 
             backgram.spinner.stop();
@@ -42,7 +55,7 @@
 
         $(function () {
             backgram.spinner.spin($('.photos')[0]);
-            backgram.instagram.photo.getAll('', 'listUserPhotos');
+            backgram.instagram.photo.getRecents('listUserPhotos');
         });
     </script>
 }
