@@ -65,7 +65,7 @@ namespace Backgram.Tests.Core
         public async Task DownloadFileAsyncShouldDownloadFile()
         {
             Downloader downloader = new Downloader();
-            var file = await downloader.DownloadFileAsync(new Uri("http://humanstxt.org/humans.txt"), Path.Combine(testDir, "5mb.zip")); //TODO: change to  file://
+            var file = await downloader.DownloadFileAsync(new Uri("http://humanstxt.org/humans.txt"), Path.Combine(testDir, "humans.txt")); //TODO: change to  file://
 
             Assert.IsTrue(file != null && file.Exists);
         }
