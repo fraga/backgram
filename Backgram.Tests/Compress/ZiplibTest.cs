@@ -29,7 +29,7 @@ namespace Backgram.Tests.Compress
         [TestInitialize]
         public void Setup()
         {
-            testDir = Path.Combine(TestContext.TestRunDirectory, "testFiles");
+            testDir = Path.Combine(TestContext.TestRunDirectory, "testZipFiles");
             CreateTestFiles();
         }
 
