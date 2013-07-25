@@ -77,7 +77,7 @@ namespace Backgram.Tests.Core
             Downloader downloader = new Downloader();
             var localDir = Directory.CreateDirectory(Path.Combine(testDir, "testDownloadFilesToDir"));
 
-            List<Uri> uriList = new List<Uri>
+            List<Uri> uriList = new List<Uri> //TODO: change URI to file://
             {
                 new Uri("http://humanstxt.org/humans.txt"),
                 new Uri("http://www.google.com/humans.txt"),
@@ -86,16 +86,10 @@ namespace Backgram.Tests.Core
 
             List<FileInfo> resultList = null;
 
-            try
-            {
-                resultList = Task.Run(() => downloader.DownloadFiles(uriList, localDir.FullName)).Result;
 
-                Thread.Sleep(new TimeSpan(0, 0, 1));
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
+            resultList = Task.Run(() => downloader.DownloadFiles(uriList, localDir.FullName)).Result;
+
+            Thread.Sleep(new TimeSpan(0, 0, 1));
 
             Assert.IsNotNull(resultList);
             Assert.IsTrue(resultList.Count == 3);
