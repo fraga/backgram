@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Backgram.Core
 {
+    /// <summary>
+    /// Downloads files or a set of files from URI paths asynchronously
+    /// </summary>
     public class Downloader
     {
         /// <summary>
