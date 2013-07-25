@@ -11,6 +11,12 @@ namespace Backgram.Core
 {
     public class Downloader
     {
+        /// <summary>
+        /// Download a set of URI locations as fast as possible, as async as possible
+        /// </summary>
+        /// <param name="uriToDownload">The list of Uri to download</param>
+        /// <param name="destinationDirPath">The directory in which the files will be downloaded to</param>
+        /// <returns></returns>
         public List<FileInfo> DownloadFiles(List<Uri> uriToDownload, string destinationDirPath)
         {
             List<FileInfo> downloadedFiles = new List<FileInfo>();
@@ -33,6 +39,12 @@ namespace Backgram.Core
             return downloadedFiles;
         }
 
+        /// <summary>
+        /// Downloads a single URI path async
+        /// </summary>
+        /// <param name="uri">The file URI</param>
+        /// <param name="fullFilePath">Full file path to be created as download</param>
+        /// <returns></returns>
         public async Task<FileInfo> DownloadFileAsync(Uri uri, string fullFilePath)
         {
             if (uri == null || string.IsNullOrEmpty(fullFilePath))
