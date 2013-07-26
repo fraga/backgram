@@ -26,7 +26,7 @@ namespace Backgram.Tests.Core
         [TestMethod]
         public void ConstructorTestNotNull()
         {
-            Downloader downloader = new Downloader();
+            FileDownloader downloader = new FileDownloader();
             Assert.IsNotNull(downloader);
         }
         
@@ -34,7 +34,7 @@ namespace Backgram.Tests.Core
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task DownloadFileAsyncTestUriArgumentNullException()
         {
-            Downloader downloader = new Downloader();
+            FileDownloader downloader = new FileDownloader();
             var file = await downloader.DownloadFileAsync(null, Path.Combine(testDir, "anotherTest.txt"));
         }
 
@@ -42,14 +42,14 @@ namespace Backgram.Tests.Core
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task DownloadFileAsyncTestFileArgumentNullException()
         {
-            Downloader downloader = new Downloader();
+            FileDownloader downloader = new FileDownloader();
             var file = await downloader.DownloadFileAsync(new Uri("http://www.google.com/file.gif"), "");
         }
 
         [TestMethod]
         public async Task DownloadFileAsyncShouldDownloadFile()
         {
-            Downloader downloader = new Downloader();
+            FileDownloader downloader = new FileDownloader();
             var file = await downloader.DownloadFileAsync(new Uri("http://humanstxt.org/humans.txt"), Path.Combine(testDir, "humans.txt")); //TODO: change to  file://
 
             Assert.IsTrue(file != null && file.Exists);
@@ -58,7 +58,7 @@ namespace Backgram.Tests.Core
         [TestMethod]
         public void DownloadFilesShouldDownloadAllFilesAsync()
         {
-            Downloader downloader = new Downloader();
+            FileDownloader downloader = new FileDownloader();
             var localDir = Directory.CreateDirectory(Path.Combine(testDir, "testDownloadFilesToDir"));
 
             List<Uri> uriList = new List<Uri> //TODO: change URI to file://
