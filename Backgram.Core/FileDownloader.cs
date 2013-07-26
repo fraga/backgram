@@ -14,6 +14,7 @@ namespace Backgram.Core
     /// </summary>
     public class FileDownloader
     {
+        public delegate void AllFilesDownloaded(List<FileInfo> files);
         /// <summary>
         /// Download a set of URI locations as fast as possible, as async as possible
         /// </summary>
@@ -39,6 +40,8 @@ namespace Backgram.Core
                 }
                 );
 
+            
+            
             return downloadedFiles;
         }
 

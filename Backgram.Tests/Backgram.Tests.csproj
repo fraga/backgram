@@ -108,7 +108,7 @@
   <ItemGroup>
     <Compile Include="BaseTestClass.cs" />
     <Compile Include="Compress\ZiplibTest.cs" />
-    <Compile Include="Core\DownloaderTest.cs" />
+    <Compile Include="Core\FileDownloaderTest.cs" />
     <Compile Include="Core\Util\AssemblyUtilTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

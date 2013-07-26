@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Backgram.Tests.Core
 {
     [TestClass]
-    public class DownloaderTest: BaseTestClass
+    public class FileDownloaderTest: BaseTestClass
     {
         private string testDir;
 
