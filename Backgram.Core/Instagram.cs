@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Backgram.Core
 {
-    public interface Instagram
+    public class Instagram
     {
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }

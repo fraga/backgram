@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Backgram.InstagramApi
 {
-    [Export
     public class InstagramAPI_v1
     {
     }
