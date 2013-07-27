@@ -72,7 +72,7 @@ namespace Backgram.Tests.Core
             //fires the download of the files.
             resultList = Task.Run(() => downloader.DownloadFiles(uriList, localDir.FullName)).Result;
             //sleep for 1s making sure all files are downloaded.
-            Thread.Sleep(new TimeSpan(0, 0, 1));
+            Thread.Sleep(1000);
 
             Assert.IsNotNull(resultList);
             Assert.IsTrue(resultList.Count == 3);
