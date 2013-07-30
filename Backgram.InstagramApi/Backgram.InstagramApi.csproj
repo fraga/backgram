@@ -51,7 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetUserMetaDataV1.cs" />
-    <Compile Include="IHttpRestfulEndpoint.cs" />
+    <Compile Include="IInstagramRestfulEndpoint.cs" />
+    <Compile Include="IInstagramAuthRestfulEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

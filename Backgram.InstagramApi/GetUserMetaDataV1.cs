@@ -4,18 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Composition;
+using System.Net.Http;
 
 namespace Backgram.InstagramApi
 {
-    [Export(typeof(IHttpRestfulEndpoint))]
+    [Export(typeof(IInstagramAuthRestfulEndpoint))]
     [ExportMetadata("version", "1.0")]
     [ExportMetadata("baseuri", "https://api.instagram.com/v1")]
-    [ExportMetadata("endpoint", "users/userId")]
-    public class GetUserMetaDataV1 : IHttpRestfulEndpoint
+    [ExportMetadata("endpoint", "users/self")]
+    [ExportMetadata("requireAuth", true)]
+    public class GetUserMetaDataV1 : IInstagramAuthRestfulEndpoint
     {
+        private string _accessToken;
+
         public string Get()
         {
-            throw new NotImplementedException();
+            using (HttpClient httpClient = new HttpClient())
+            {
+                Uri endPointUri = new Uri(EndPoint);
+                var result = httpClient.GetAsync(new Uri(endPointUri, "?access_token=32714411.1fb234f.65b186d31bff441f924ef3386e65eb69")).Result;
+
+                return result.Content.ReadAsStringAsync().Result;
+            }
         }
 
         public string Post()
@@ -37,7 +47,19 @@ namespace Backgram.InstagramApi
         {
             get
             {
-                return "https://api.instagram.com/v1/users/userid";
+                return "https://api.instagram.com/v1/users/self";
+            }
+        }
+
+        public string AccessToken
+        {
+            get
+            {
+                return _accessToken;
+            }
+            set
+            {
+                _accessToken = value;
             }
         }
     }

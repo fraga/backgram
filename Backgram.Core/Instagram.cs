@@ -9,6 +9,7 @@ using Backgram.InstagramApi;
 
 namespace Backgram.Core
 {
+    [Export]
     public class Instagram
     {
         public string ClientId { get; set; }
@@ -17,6 +18,8 @@ namespace Backgram.Core
         public string ResponseType { get; set; }
 
         [ImportMany]
-        public IEnumerable<Lazy<IHttpRestfulEndpoint>> InstagramEndpoints;
+        public IEnumerable<Lazy<IInstagramRestfulEndpoint>> InstagramEndpoints;
+        [ImportMany]
+        public IEnumerable<Lazy<IInstagramAuthRestfulEndpoint>> InstagramAuthEndpoints;
     }
 }
