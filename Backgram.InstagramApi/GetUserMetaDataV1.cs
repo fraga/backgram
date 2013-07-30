@@ -23,7 +23,7 @@ namespace Backgram.InstagramApi
             using (HttpClient httpClient = new HttpClient())
             {
                 Uri endPointUri = new Uri(EndPoint);
-                var result = httpClient.GetAsync(new Uri(endPointUri, "?access_token=32714411.1fb234f.65b186d31bff441f924ef3386e65eb69")).Result;
+                var result = httpClient.GetAsync(new Uri(endPointUri, String.Format("?access_token={0}", AccessToken))).Result;
 
                 return result.Content.ReadAsStringAsync().Result;
             }
