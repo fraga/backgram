@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetUserMetaData.cs" />
+    <Compile Include="GetUserMetaDataV1.cs" />
     <Compile Include="IHttpRestfulEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
