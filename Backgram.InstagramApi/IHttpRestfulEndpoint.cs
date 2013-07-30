@@ -12,5 +12,6 @@ namespace Backgram.InstagramApi
         string Get();
         string Post();
         string Delete();
+        string Put();
     }
 }

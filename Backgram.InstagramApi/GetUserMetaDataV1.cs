@@ -28,6 +28,11 @@ namespace Backgram.InstagramApi
             throw new NotSupportedException("User metadata does not allows delete actions");
         }
 
+        public string Put()
+        {
+            throw new NotSupportedException("User metadata does not allows put actions");
+        }
+
         public string EndPoint
         {
             get
