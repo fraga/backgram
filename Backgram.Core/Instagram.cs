@@ -15,5 +15,8 @@ namespace Backgram.Core
         public string ClientSecret { get; set; }
         public string RedirectURI { get; set; }
         public string ResponseType { get; set; }
+
+        [ImportMany]
+        public IEnumerable<Lazy<IHttpRestfulEndpoint>> InstagramEndpoints;
     }
 }
