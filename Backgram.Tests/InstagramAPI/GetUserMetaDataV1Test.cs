@@ -17,6 +17,8 @@ namespace Backgram.Tests.InstagramAPI
             GetUserMetaDataV1 getUserMetadataV1 = new GetUserMetaDataV1();
 
             var result = getUserMetadataV1.Get();
+
+            Assert.IsFalse(string.IsNullOrEmpty(result));
         }
     }
 }

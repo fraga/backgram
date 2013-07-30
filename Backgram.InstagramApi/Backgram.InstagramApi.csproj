@@ -51,12 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetUserMetaDataV1.cs" />
-    <Compile Include="IInstagramRestfulEndpoint.cs" />
-    <Compile Include="IInstagramAuthRestfulEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Backgram.Core\Backgram.Core.csproj">
+      <Project>{7d03038e-23f4-4ab0-ac95-0cd56ca486eb}</Project>
+      <Name>Backgram.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -5,9 +5,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Composition;
-using Backgram.InstagramApi;
 
-namespace Backgram.Core
+namespace Backgram.Core.Api
 {
     [Export]
     public class Instagram

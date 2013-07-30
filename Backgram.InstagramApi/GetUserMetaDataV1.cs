@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using System.Net.Http;
+using Backgram.Core.Api;
 
 namespace Backgram.InstagramApi
 {

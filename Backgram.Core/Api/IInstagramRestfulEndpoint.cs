@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Backgram.InstagramApi
+namespace Backgram.Core.Api
 {
     public interface IInstagramRestfulEndpoint
     {
