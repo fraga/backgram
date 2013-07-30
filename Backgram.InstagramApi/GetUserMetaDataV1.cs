@@ -13,19 +13,31 @@ namespace Backgram.InstagramApi
     [ExportMetadata("endpoint", "users/userId")]
     public class GetUserMetaDataV1 : IHttpRestfulEndpoint
     {
-        public string Get(string endpoint)
+        public string Get()
         {
             throw new NotImplementedException();
         }
 
-        public string Post(string endpoint)
+        public string Post()
         {
             throw new NotSupportedException("User metadata does not allows post actions");
         }
 
-        public string Delete(string endpoint)
+        public string Delete()
         {
             throw new NotSupportedException("User metadata does not allows delete actions");
+        }
+
+        public string EndPoint
+        {
+            get
+            {
+                return "https://api.instagram.com/v1/users/userid";
+            }
+            set
+            {
+                
+            }
         }
     }
 }

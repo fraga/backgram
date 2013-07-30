@@ -8,8 +8,9 @@ namespace Backgram.InstagramApi
 {
     public interface IHttpRestfulEndpoint
     {
-        string Get(string endpoint);
-        string Post(string endpoint);
-        string Delete(string endpoint);
+        string EndPoint { get; set; }
+        string Get();
+        string Post();
+        string Delete();
     }
 }
