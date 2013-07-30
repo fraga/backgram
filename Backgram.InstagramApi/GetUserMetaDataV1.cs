@@ -34,10 +34,6 @@ namespace Backgram.InstagramApi
             {
                 return "https://api.instagram.com/v1/users/userid";
             }
-            set
-            {
-                
-            }
         }
     }
 }
