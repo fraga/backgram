@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Backgram.InstagramApi
 {
-    public class InstagramAPI_v1
+    public interface IHttpRestfulEndpoint
     {
+        string Get(string endpoint);
+        string Post(string endpoint);
+        string Delete(string endpoint);
     }
 }
