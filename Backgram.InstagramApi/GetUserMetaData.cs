@@ -9,6 +9,7 @@ namespace Backgram.InstagramApi
 {
     [Export(typeof(IHttpRestfulEndpoint))]
     [ExportMetadata("version", "1.0")]
+    [ExportMetadata("baseuri", "https://api.instagram.com/v1")]
     [ExportMetadata("endpoint", "users/userId")]
     public class GetUserMetaData : IHttpRestfulEndpoint
     {
