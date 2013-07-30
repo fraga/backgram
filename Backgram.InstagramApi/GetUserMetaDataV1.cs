@@ -20,12 +20,12 @@ namespace Backgram.InstagramApi
 
         public string Post(string endpoint)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException("User metadata does not allows post actions");
         }
 
         public string Delete(string endpoint)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException("User metadata does not allows delete actions");
         }
     }
 }
