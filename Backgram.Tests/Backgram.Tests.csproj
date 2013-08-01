@@ -109,6 +109,7 @@
     <Compile Include="BaseTestClass.cs" />
     <Compile Include="Compress\ZiplibTest.cs" />
     <Compile Include="Core\FileDownloaderTest.cs" />
+    <Compile Include="Core\InstagramTest.cs" />
     <Compile Include="Core\Util\AssemblyUtilTest.cs" />
     <Compile Include="InstagramApi\GetUserMetaDataV1Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
