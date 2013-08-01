@@ -113,6 +113,7 @@
     <Compile Include="Core\InstagramTest.cs" />
     <Compile Include="Core\Util\AssemblyUtilTest.cs" />
     <Compile Include="InstagramApi\GetUserMetaDataTest.cs" />
+    <Compile Include="InstagramApi\OAuthRedirectTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
