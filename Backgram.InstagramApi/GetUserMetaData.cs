@@ -36,20 +36,5 @@ namespace Backgram.InstagramApi
             }
         }
 
-        public override string Post()
-        {
-            throw new NotSupportedException("User metadata does not allows post actions");
-        }
-
-        public override string Delete()
-        {
-            throw new NotSupportedException("User metadata does not allows delete actions");
-        }
-
-        public override string Put()
-        {
-            throw new NotSupportedException("User metadata does not allows put actions");
-        }
-
     }
 }
