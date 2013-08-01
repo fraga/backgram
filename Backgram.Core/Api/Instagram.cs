@@ -51,6 +51,15 @@ namespace Backgram.Core.Api
 
         }
 
+        public void AuthorizeTokenRequest(InstagramData instagramData)
+        {
+            if (InstagramEndpoints == null || instagramData == null)
+                return;
+
+            var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "AuthTokenRequest").Value;
+
+            authEndpoint.InstagramData = instagramData;
+            authEndpoint.Post();
         }
 
     }
