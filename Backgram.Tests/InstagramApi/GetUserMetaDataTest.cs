@@ -44,30 +44,6 @@ namespace Backgram.Tests.InstagramApi
             Assert.IsFalse(string.IsNullOrEmpty(result));
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NotSupportedException))]
-        public void TestUserMetadataPost()
-        {
-            GetUserMetaData getuserMetadata = new GetUserMetaData();
-            getuserMetadata.Post();
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NotSupportedException))]
-        public void TestUserMetadataPut()
-        {
-            GetUserMetaData getuserMetadata = new GetUserMetaData();
-            getuserMetadata.Put();
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NotSupportedException))]
-        public void TestUserMetadataDelete()
-        {
-            GetUserMetaData getuserMetadata = new GetUserMetaData();
-            getuserMetadata.Delete();
-        }
-
 
     }
 }
