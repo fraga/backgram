@@ -45,10 +45,5 @@ namespace Backgram.InstagramApi
         {
             throw new NotSupportedException();
         }
-
-        public HttpContent BuildExplicitAuthHeader()
-        {
-            return null;
-        }
     }
 }
