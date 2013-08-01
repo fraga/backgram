@@ -34,20 +34,22 @@ namespace Backgram.Core.Api
             }
         }
 
-        public void Authorize()
+        public void AuthorizeRedirect()
         {
-            Authorize(InstagramData);
+            AuthorizeRedirect(InstagramData);
         }
 
-        public void Authorize(InstagramData instagramData)
+        public void AuthorizeRedirect(InstagramData instagramData)
         {
             if (InstagramEndpoints == null || instagramData == null)
                 return;
 
-            var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "Auth").Value;
+            var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "AuthRedirect").Value;
 
             authEndpoint.InstagramData = instagramData;
-            authEndpoint.Post();
+            authEndpoint.Get();
+
+        }
 
         }
 

@@ -10,7 +10,7 @@ using System.ComponentModel.Composition;
 namespace Backgram.InstagramApi
 {
     [Export(typeof(IInstagramEndpoint))]
-    [ExportMetadata("Name", "Auth")]
+    [ExportMetadata("Name", "AuthRedirect")]
     [ExportMetadata("Version", "1.0")]
     public class OAuthRedirect: BaseInstagramEndpoint
     {
