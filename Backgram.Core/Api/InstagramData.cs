@@ -13,5 +13,6 @@ namespace Backgram.Core.Api
         public string RedirectURI { get; set; }
         public string ResponseType { get; set; }
         public string AccessToken { get; set; }
+        public string Code { get; set; }
     }
 }
