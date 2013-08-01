@@ -5,6 +5,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using System.IO;
 
 namespace Backgram.Core.Api
 {
@@ -14,6 +16,24 @@ namespace Backgram.Core.Api
         public string ClientSecret { get; set; }
         public string RedirectURI { get; set; }
         public string ResponseType { get; set; }
+
+        public Instagram()
+        {
+            ImportCatalog();
+        }
+
+        public void ImportCatalog()
+        {
+            try
+            {
+                DirectoryCatalog catalog = new DirectoryCatalog(Path.Combine(AppDomain.CurrentDomain.BaseDirectory));
+                CompositionContainer container = new CompositionContainer(catalog);
+                container.ComposeParts(this);
+            }
+            catch (Exception)
+            {
+            }
+        }
 
         [ImportMany]
         public IEnumerable<Lazy<IInstagramRestfulEndpoint>> InstagramEndpoints;
