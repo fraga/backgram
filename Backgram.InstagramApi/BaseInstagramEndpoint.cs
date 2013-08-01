@@ -42,10 +42,6 @@ namespace Backgram.InstagramApi
             {
                 throw new NotImplementedException();
             }
-            set
-            {
-                throw new NotImplementedException();
-            }
         }
     }
 }

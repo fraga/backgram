@@ -13,7 +13,7 @@ namespace Backgram.InstagramApi
     [ExportMetadata("Version", "1.0")]
     public class GetUserMetaDataV1 : BaseInstagramEndpoint
     {
-        public override string EndPoint { get { return "https://api.instagram.com/v1/users/self"; } set{ } }
+        public override string EndPoint { get { return "https://api.instagram.com/v1/users/self"; } }
 
         public GetUserMetaDataV1(): base()
         {

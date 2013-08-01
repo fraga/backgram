@@ -20,7 +20,6 @@ namespace Backgram.InstagramApi
             {
                 return "https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type={2}";
             }
-            set {}
         }
         public override string Get()
         {
