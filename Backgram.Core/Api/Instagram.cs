@@ -17,7 +17,7 @@ namespace Backgram.Core.Api
         public string RedirectURI { get; set; }
         public string ResponseType { get; set; }
         [ImportMany]
-        public IEnumerable<Lazy<IRestfulEndpoint, IRestfulEndpointData>> InstagramEndpoints;
+        public IEnumerable<Lazy<IInstagramEndpoint, IInstagramEndPointData>> InstagramEndpoints;
 
         public Instagram()
         {
@@ -47,6 +47,9 @@ namespace Backgram.Core.Api
             if (InstagramEndpoints == null)
                 return;
 
+            var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "Auth").Value;
+
+            authEndpoint.Get();
 
         }
 

@@ -9,40 +9,32 @@ using System.ComponentModel.Composition;
 
 namespace Backgram.InstagramApi
 {
-    [Export(typeof(IRestfulEndpoint))]
+    [Export(typeof(IInstagramEndpoint))]
+    [ExportMetadata("Name", "Auth")]
     [ExportMetadata("Version", "1.0")]
-    public class OAuth20: IRestfulEndpoint
+    public class OAuth20: BaseInstagramEndpoint
     {
-        public string ClientId { get; set; }
-        public string ClientSecret { get; set; }
-        public string RedirectUri { get; set; }
-        public string AccessToken { get; set; }
-        public string EndPoint
-        {
-            get { return "https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type=token"; }
-        }
-
-        public string Get()
+        public override string Get()
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                var httpContent = httpClient.GetAsync(new Uri(String.Format(EndPoint, ClientId, RedirectUri))).Result;
+                var httpContent = httpClient.GetAsync(new Uri(String.Format("https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type=token", ClientId, RedirectURI))).Result;
 
                 return httpContent.Content.ReadAsStringAsync().Result;
             }
         }
 
-        public string Post()
+        public override string Post()
         {
             throw new NotSupportedException();
         }
 
-        public string Delete()
+        public override string Delete()
         {
             throw new NotSupportedException();
         }
 
-        public string Put()
+        public override string Put()
         {
             throw new NotSupportedException();
         }

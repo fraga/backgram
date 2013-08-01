@@ -9,12 +9,10 @@ using Backgram.Core.Api;
 
 namespace Backgram.InstagramApi
 {
-    [Export(typeof(IRestfulEndpoint))]
+    [Export(typeof(IInstagramEndpoint))]
     [ExportMetadata("Version", "1.0")]
-    public class GetUserMetaDataV1 : IRestfulEndpoint
+    public class GetUserMetaDataV1 : BaseInstagramEndpoint
     {
-        public string AccessToken { get; set; }
-
         public string Get()
         {
             using (HttpClient httpClient = new HttpClient())

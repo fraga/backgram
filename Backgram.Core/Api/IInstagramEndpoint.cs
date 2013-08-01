@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Backgram.Core.Api
 {
-    public interface IRestfulEndpointData
+    public interface IInstagramEndpoint
     {
-        string Version { get; }
+        string Get();
+        string Post();
+        string Delete();
+        string Put();
     }
 }

@@ -33,7 +33,7 @@ namespace Backgram.Tests.Core
             Instagram instagram = new Instagram();
             instagram.ImportCatalog();
 
-            foreach (Lazy<IRestfulEndpoint, IRestfulEndpointData> endpoint in instagram.InstagramEndpoints)
+            foreach (Lazy<IInstagramEndpoint, IInstagramEndPointData> endpoint in instagram.InstagramEndpoints)
             {
                 Assert.IsNotNull(endpoint.Value);
                 Assert.IsNotNull(endpoint.Metadata.Version);
