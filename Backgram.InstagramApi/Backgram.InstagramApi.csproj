@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BaseInstagramEndpoint.cs" />
     <Compile Include="GetUserMetaData.cs" />
+    <Compile Include="OAuthAuthorizeCode.cs" />
     <Compile Include="OAuthRedirect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
