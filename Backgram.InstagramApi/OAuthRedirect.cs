@@ -30,20 +30,5 @@ namespace Backgram.InstagramApi
                 return httpContent.Content.ReadAsStringAsync().Result;
             }
         }
-
-        public override string Post()
-        {
-            throw new NotSupportedException();
-        }
-
-        public override string Delete()
-        {
-            throw new NotSupportedException();
-        }
-
-        public override string Put()
-        {
-            throw new NotSupportedException();
-        }
     }
 }
