@@ -8,7 +8,6 @@ using System.ComponentModel.Composition;
 
 namespace Backgram.Core.Api
 {
-    [Export]
     public class Instagram
     {
         public string ClientId { get; set; }
