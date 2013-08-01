@@ -36,7 +36,7 @@ namespace Backgram.Core.Api
             {
             }
         }
-        
+
         public void Authorize()
         {
             Authorize(ClientId, ClientSecret, RedirectURI, ResponseType);
