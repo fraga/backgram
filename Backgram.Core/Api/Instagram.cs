@@ -18,10 +18,10 @@ namespace Backgram.Core.Api
 
         public Instagram()
         {
-            ImportCatalog();
+            ImportAssemblyCatalog();
         }
 
-        public void ImportCatalog()
+        public void ImportAssemblyCatalog()
         {
             try
             {

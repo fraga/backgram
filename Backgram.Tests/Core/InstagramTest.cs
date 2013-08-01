@@ -22,7 +22,7 @@ namespace Backgram.Tests.Core
         public void TestCatalogShouldHookAssembly()
         {
             Instagram instagram = new Instagram();
-            instagram.ImportCatalog();
+            instagram.ImportAssemblyCatalog();
 
             Assert.IsNotNull(instagram.InstagramEndpoints);
         }
@@ -31,7 +31,7 @@ namespace Backgram.Tests.Core
         public void TestCatalogShouldLoadClasses()
         {
             Instagram instagram = new Instagram();
-            instagram.ImportCatalog();
+            instagram.ImportAssemblyCatalog();
 
             foreach (Lazy<IInstagramEndpoint, IInstagramEndPointData> endpoint in instagram.InstagramEndpoints)
             {
