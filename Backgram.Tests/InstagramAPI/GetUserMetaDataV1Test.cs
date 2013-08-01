@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Backgram.InstagramApi;
 
-namespace Backgram.Tests.InstagramAPI
+namespace Backgram.Tests.InstagramApi
 {
     [TestClass]
     public class GetUserMetaDataV1Test
