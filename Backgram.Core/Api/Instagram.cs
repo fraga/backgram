@@ -16,6 +16,8 @@ namespace Backgram.Core.Api
         public string ClientSecret { get; set; }
         public string RedirectURI { get; set; }
         public string ResponseType { get; set; }
+        [ImportMany]
+        public IEnumerable<Lazy<IRestfulEndpoint, IRestfulEndpointData>> InstagramEndpoints;
 
         public Instagram()
         {
@@ -34,10 +36,7 @@ namespace Backgram.Core.Api
             {
             }
         }
-
-        [ImportMany]
-        public IEnumerable<Lazy<IRestfulEndpoint, IRestfulEndpointData>> InstagramEndpoints;
-
+        
         public void Authorize()
         {
             Authorize(ClientId, ClientSecret, RedirectURI, ResponseType);
