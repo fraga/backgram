@@ -12,7 +12,7 @@ namespace Backgram.Tests.InstagramApi
     public class GetUserMetaDataV1Test
     {
         [TestMethod]
-        public void TestGet()
+        public void TestUserMetadataGet()
         {
             GetUserMetaDataV1 getUserMetadataV1 = new GetUserMetaDataV1();
             getUserMetadataV1.AccessToken = "32714411.1fb234f.65b186d31bff441f924ef3386e65eb69";
@@ -20,5 +20,31 @@ namespace Backgram.Tests.InstagramApi
 
             Assert.IsFalse(string.IsNullOrEmpty(result));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotSupportedException))]
+        public void TestUserMetadataPost()
+        {
+            GetUserMetaDataV1 getuserMetadataV1 = new GetUserMetaDataV1();
+            getuserMetadataV1.Post();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotSupportedException))]
+        public void TestUserMetadataPut()
+        {
+            GetUserMetaDataV1 getuserMetadataV1 = new GetUserMetaDataV1();
+            getuserMetadataV1.Put();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotSupportedException))]
+        public void TestUserMetadataDelete()
+        {
+            GetUserMetaDataV1 getuserMetadataV1 = new GetUserMetaDataV1();
+            getuserMetadataV1.Delete();
+        }
+
+
     }
 }
