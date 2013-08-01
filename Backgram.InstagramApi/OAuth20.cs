@@ -5,9 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Backgram.Core.Api;
 using System.Net.Http;
+using System.ComponentModel.Composition;
 
 namespace Backgram.InstagramApi
 {
+    [Export(typeof(IInstagramRestfulEndpoint))]
+    [ExportMetadata("version", "1.0")]
+    [ExportMetadata("baseuri", "https://api.instagram.com/")]
+    [ExportMetadata("endpoint", "oauth/authorize")]
+    [ExportMetadata("requireAuth", false)]
     public class OAuth20: IInstagramRestfulEndpoint
     {
         public string ClientId { get; set; }
