@@ -39,38 +39,38 @@ namespace Backgram.Core.Api
             AuthorizeRedirect(InstagramData);
         }
 
-        public void AuthorizeRedirect(InstagramData instagramData)
+        public string AuthorizeRedirect(InstagramData instagramData)
         {
             if (InstagramEndpoints == null || instagramData == null)
-                return;
+                return string.Empty;
 
             var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "AuthRedirect").Value;
 
             authEndpoint.InstagramData = instagramData;
-            authEndpoint.Get();
+            return authEndpoint.Get();
 
         }
 
-        public void AuthorizeTokenRequest(InstagramData instagramData)
+        public string AuthorizeTokenRequest(InstagramData instagramData)
         {
             if (InstagramEndpoints == null || instagramData == null)
-                return;
+                return string.Empty;
 
             var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "AuthTokenRequest").Value;
 
             authEndpoint.InstagramData = instagramData;
-            authEndpoint.Post();
+            return authEndpoint.Post();
         }
 
-        public void GetUserInfo(InstagramData instagramData)
+        public string GetUserInfo(InstagramData instagramData)
         {
             if (InstagramEndpoints == null || instagramData == null)
-                return;
+                return string.Empty;
 
             var userMetaData = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "GetUserMetaData").Value;
 
             userMetaData.InstagramData = instagramData;
-            userMetaData.Get();
+            return userMetaData.Get();
         }
 
     }
