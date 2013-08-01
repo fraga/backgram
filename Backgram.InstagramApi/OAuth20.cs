@@ -9,12 +9,9 @@ using System.ComponentModel.Composition;
 
 namespace Backgram.InstagramApi
 {
-    [Export(typeof(IInstagramRestfulEndpoint))]
-    [ExportMetadata("version", "1.0")]
-    [ExportMetadata("baseuri", "https://api.instagram.com/")]
-    [ExportMetadata("endpoint", "oauth/authorize")]
-    [ExportMetadata("requireAuth", false)]
-    public class OAuth20: IInstagramRestfulEndpoint
+    [Export(typeof(IRestfulEndpoint))]
+    [ExportMetadata("Version", "1.0")]
+    public class OAuth20: IRestfulEndpoint
     {
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }

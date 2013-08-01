@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Backgram.Core.Api
 {
-    public interface IInstagramAuthRestfulEndpoint: IInstagramRestfulEndpoint
+    public interface IRestfulEndpointData
     {
-        string AccessToken { get; set; }
+        string Version { get; }
     }
 }

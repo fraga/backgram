@@ -24,7 +24,6 @@ namespace Backgram.Tests.Core
             Instagram instagram = new Instagram();
             instagram.ImportCatalog();
 
-            Assert.IsNotNull(instagram.InstagramAuthEndpoints);
             Assert.IsNotNull(instagram.InstagramEndpoints);
         }
 
@@ -34,15 +33,12 @@ namespace Backgram.Tests.Core
             Instagram instagram = new Instagram();
             instagram.ImportCatalog();
 
-            foreach (var item in instagram.InstagramEndpoints)
+            foreach (Lazy<IRestfulEndpoint, IRestfulEndpointData> endpoint in instagram.InstagramEndpoints)
             {
-                Assert.IsNotNull(item.Value);
+                Assert.IsNotNull(endpoint.Value);
+                Assert.IsNotNull(endpoint.Metadata.Version);
             }
 
-            foreach (var item in instagram.InstagramAuthEndpoints)
-            {
-                Assert.IsNotNull(item.Value);
-            }
         }
     }
 }

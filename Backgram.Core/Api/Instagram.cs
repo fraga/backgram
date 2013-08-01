@@ -36,9 +36,7 @@ namespace Backgram.Core.Api
         }
 
         [ImportMany]
-        public IEnumerable<Lazy<IInstagramRestfulEndpoint>> InstagramEndpoints;
-        [ImportMany]
-        public IEnumerable<Lazy<IInstagramAuthRestfulEndpoint>> InstagramAuthEndpoints;
+        public IEnumerable<Lazy<IRestfulEndpoint, IRestfulEndpointData>> InstagramEndpoints;
 
         public void Authorize()
         {
@@ -49,6 +47,7 @@ namespace Backgram.Core.Api
         {
             if (InstagramEndpoints == null)
                 return;
+
 
         }
 

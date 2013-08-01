@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\IRestfulEndpointData.cs" />
     <Compile Include="FileDownloader.cs" />
     <Compile Include="Api\Instagram.cs" />
-    <Compile Include="Api\IInstagramAuthRestfulEndpoint.cs" />
-    <Compile Include="Api\IInstagramRestfulEndpoint.cs" />
+    <Compile Include="Api\IRestfulEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AssemblyUtil.cs" />
   </ItemGroup>

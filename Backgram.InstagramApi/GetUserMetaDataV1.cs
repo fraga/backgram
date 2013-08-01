@@ -9,14 +9,11 @@ using Backgram.Core.Api;
 
 namespace Backgram.InstagramApi
 {
-    [Export(typeof(IInstagramAuthRestfulEndpoint))]
-    [ExportMetadata("version", "1.0")]
-    [ExportMetadata("baseuri", "https://api.instagram.com/v1")]
-    [ExportMetadata("endpoint", "users/self")]
-    [ExportMetadata("requireAuth", true)]
-    public class GetUserMetaDataV1 : IInstagramAuthRestfulEndpoint
+    [Export(typeof(IRestfulEndpoint))]
+    [ExportMetadata("Version", "1.0")]
+    public class GetUserMetaDataV1 : IRestfulEndpoint
     {
-        private string _accessToken;
+        public string AccessToken { get; set; }
 
         public string Get()
         {
@@ -52,16 +49,6 @@ namespace Backgram.InstagramApi
             }
         }
 
-        public string AccessToken
-        {
-            get
-            {
-                return _accessToken;
-            }
-            set
-            {
-                _accessToken = value;
-            }
-        }
+
     }
 }
