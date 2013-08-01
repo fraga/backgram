@@ -12,10 +12,7 @@ namespace Backgram.Core.Api
 {
     public class Instagram
     {
-        public string ClientId { get; set; }
-        public string ClientSecret { get; set; }
-        public string RedirectURI { get; set; }
-        public string ResponseType { get; set; }
+        public InstagramData InstagramData { get; set; }
         [ImportMany]
         public IEnumerable<Lazy<IInstagramEndpoint, IInstagramEndPointData>> InstagramEndpoints;
 
@@ -39,17 +36,18 @@ namespace Backgram.Core.Api
 
         public void Authorize()
         {
-            Authorize(ClientId, ClientSecret, RedirectURI, ResponseType);
+            Authorize(InstagramData);
         }
 
-        public void Authorize(string clientId, string clientSecret, string redirectUri, string responseType)
+        public void Authorize(InstagramData instagramData)
         {
-            if (InstagramEndpoints == null)
+            if (InstagramEndpoints == null || instagramData == null)
                 return;
 
             var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "Auth").Value;
 
-            authEndpoint.Get();
+            authEndpoint.InstagramData = instagramData;
+            authEndpoint.Post();
 
         }
 

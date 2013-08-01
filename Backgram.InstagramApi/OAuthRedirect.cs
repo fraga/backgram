@@ -12,13 +12,21 @@ namespace Backgram.InstagramApi
     [Export(typeof(IInstagramEndpoint))]
     [ExportMetadata("Name", "Auth")]
     [ExportMetadata("Version", "1.0")]
-    public class OAuth20: BaseInstagramEndpoint
+    public class OAuthRedirect: BaseInstagramEndpoint
     {
+        public override string EndPoint
+        {
+            get
+            {
+                return "https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type={2}";
+            }
+            set {}
+        }
         public override string Get()
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                var httpContent = httpClient.GetAsync(new Uri(String.Format("https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type=token", InstagramData.ClientId, InstagramData.RedirectURI))).Result;
+                var httpContent = httpClient.GetAsync(new Uri(String.Format(EndPoint, InstagramData.ClientId, InstagramData.RedirectURI, InstagramData.ResponseType))).Result;
 
                 return httpContent.Content.ReadAsStringAsync().Result;
             }
