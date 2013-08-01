@@ -10,19 +10,19 @@ using Backgram.Core.Api;
 namespace Backgram.Tests.InstagramApi
 {
     [TestClass]
-    public class GetUserMetaDataV1Test
+    public class GetUserMetaDataTest
     {
         [TestMethod]
         public void TestUserMetadataConstructor()
         {
-            GetUserMetaDataV1 getUserMetadata = new GetUserMetaDataV1();
+            GetUserMetaData getUserMetadata = new GetUserMetaData();
             Assert.IsNotNull(getUserMetadata);
         }
 
         [TestMethod]
         public void TestUserMetadataInstagramDataNotNull()
         {
-            GetUserMetaDataV1 getUserMetadata = new GetUserMetaDataV1();
+            GetUserMetaData getUserMetadata = new GetUserMetaData();
             Assert.IsNotNull(getUserMetadata);
             Assert.IsNotNull(getUserMetadata.InstagramData);
         }
@@ -30,16 +30,16 @@ namespace Backgram.Tests.InstagramApi
         [TestMethod]
         public void TestUserMetadataHasAnEndPoint()
         {
-            GetUserMetaDataV1 getUserMetadata = new GetUserMetaDataV1();
+            GetUserMetaData getUserMetadata = new GetUserMetaData();
             Assert.AreEqual("https://api.instagram.com/v1/users/self", getUserMetadata.EndPoint);
         }
 
         [TestMethod]
         public void TestUserMetadataGet()
         {
-            GetUserMetaDataV1 getUserMetadataV1 = new GetUserMetaDataV1();
-            getUserMetadataV1.InstagramData.AccessToken = "32714411.1fb234f.65b186d31bff441f924ef3386e65eb69";
-            var result = getUserMetadataV1.Get();
+            GetUserMetaData getUserMetadata = new GetUserMetaData();
+            getUserMetadata.InstagramData.AccessToken = "32714411.1fb234f.65b186d31bff441f924ef3386e65eb69";
+            var result = getUserMetadata.Get();
 
             Assert.IsFalse(string.IsNullOrEmpty(result));
         }
@@ -48,24 +48,24 @@ namespace Backgram.Tests.InstagramApi
         [ExpectedException(typeof(NotSupportedException))]
         public void TestUserMetadataPost()
         {
-            GetUserMetaDataV1 getuserMetadataV1 = new GetUserMetaDataV1();
-            getuserMetadataV1.Post();
+            GetUserMetaData getuserMetadata = new GetUserMetaData();
+            getuserMetadata.Post();
         }
 
         [TestMethod]
         [ExpectedException(typeof(NotSupportedException))]
         public void TestUserMetadataPut()
         {
-            GetUserMetaDataV1 getuserMetadataV1 = new GetUserMetaDataV1();
-            getuserMetadataV1.Put();
+            GetUserMetaData getuserMetadata = new GetUserMetaData();
+            getuserMetadata.Put();
         }
 
         [TestMethod]
         [ExpectedException(typeof(NotSupportedException))]
         public void TestUserMetadataDelete()
         {
-            GetUserMetaDataV1 getuserMetadataV1 = new GetUserMetaDataV1();
-            getuserMetadataV1.Delete();
+            GetUserMetaData getuserMetadata = new GetUserMetaData();
+            getuserMetadata.Delete();
         }
 
 
