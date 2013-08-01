@@ -62,5 +62,16 @@ namespace Backgram.Core.Api
             authEndpoint.Post();
         }
 
+        public void GetUserInfo(InstagramData instagramData)
+        {
+            if (InstagramEndpoints == null || instagramData == null)
+                return;
+
+            var userMetaData = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "GetUserMetaData").Value;
+
+            userMetaData.InstagramData = instagramData;
+            userMetaData.Get();
+        }
+
     }
 }

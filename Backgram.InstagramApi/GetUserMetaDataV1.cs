@@ -10,6 +10,7 @@ using Backgram.Core.Api;
 namespace Backgram.InstagramApi
 {
     [Export(typeof(IInstagramEndpoint))]
+    [ExportMetadata("Name", "GetUserMetaData")]
     [ExportMetadata("Version", "1.0")]
     public class GetUserMetaDataV1 : BaseInstagramEndpoint
     {
