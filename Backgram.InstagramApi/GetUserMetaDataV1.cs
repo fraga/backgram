@@ -13,40 +13,42 @@ namespace Backgram.InstagramApi
     [ExportMetadata("Version", "1.0")]
     public class GetUserMetaDataV1 : BaseInstagramEndpoint
     {
-        public string Get()
+        public override string EndPoint { get { return "https://api.instagram.com/v1/users/self"; } set{ } }
+
+        public GetUserMetaDataV1(): base()
+        {
+        }
+
+        public GetUserMetaDataV1(InstagramData instagramData)
+        {
+            InstagramData = instagramData;
+        }
+
+        public override string Get()
         {
             using (HttpClient httpClient = new HttpClient())
             {
                 Uri endPointUri = new Uri(EndPoint);
-                var result = httpClient.GetAsync(new Uri(endPointUri, String.Format("?access_token={0}", AccessToken))).Result;
+                var result = httpClient.GetAsync(new Uri(endPointUri, String.Format("?access_token={0}", InstagramData))).Result;
 
                 return result.Content.ReadAsStringAsync().Result;
             }
         }
 
-        public string Post()
+        public override string Post()
         {
             throw new NotSupportedException("User metadata does not allows post actions");
         }
 
-        public string Delete()
+        public override string Delete()
         {
             throw new NotSupportedException("User metadata does not allows delete actions");
         }
 
-        public string Put()
+        public override string Put()
         {
             throw new NotSupportedException("User metadata does not allows put actions");
         }
-
-        public string EndPoint
-        {
-            get
-            {
-                return "https://api.instagram.com/v1/users/self";
-            }
-        }
-
 
     }
 }

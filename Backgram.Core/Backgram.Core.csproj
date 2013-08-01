@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\IInstagramData.cs" />
+    <Compile Include="Api\InstagramData.cs" />
     <Compile Include="Api\IInstagramEndpointData.cs" />
     <Compile Include="FileDownloader.cs" />
     <Compile Include="Api\Instagram.cs" />

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Backgram.InstagramApi
 {
-    public abstract class BaseInstagramEndpoint: IInstagramEndpoint, IInstagramData
+    public abstract class BaseInstagramEndpoint: IInstagramEndpoint
     {
-        public string ClientId { get; set; }
-        public string ClientSecret { get; set; }
-        public string RedirectURI { get; set; }
-        public string ResponseType { get; set; }
-        public string AccessToken { get; set; }
-        public string EndPoint { get; set; }
+        public InstagramData InstagramData { get; set; }
+
+        public BaseInstagramEndpoint()
+        {
+            InstagramData = new InstagramData();
+        }
 
         public virtual string Get()
         {
@@ -36,5 +36,16 @@ namespace Backgram.InstagramApi
             throw new NotImplementedException();
         }
 
+        public virtual string EndPoint
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace Backgram.Core.Api
 {
     public interface IInstagramEndpoint
     {
+        InstagramData InstagramData { get; set; }
         string Get();
         string Post();
         string Delete();

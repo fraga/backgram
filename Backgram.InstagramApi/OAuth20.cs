@@ -18,7 +18,7 @@ namespace Backgram.InstagramApi
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                var httpContent = httpClient.GetAsync(new Uri(String.Format("https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type=token", ClientId, RedirectURI))).Result;
+                var httpContent = httpClient.GetAsync(new Uri(String.Format("https://api.instagram.com/oauth/authorize/?client_id={0}&redirect_uri={1}&response_type=token", InstagramData.ClientId, InstagramData.RedirectURI))).Result;
 
                 return httpContent.Content.ReadAsStringAsync().Result;
             }
