@@ -22,8 +22,6 @@ namespace Backgram.Tests.Core
         public void TestCatalogShouldHookAssembly()
         {
             Instagram instagram = new Instagram();
-            instagram.ImportAssemblyCatalog();
-
             Assert.IsNotNull(instagram.InstagramEndpoints);
         }
 
