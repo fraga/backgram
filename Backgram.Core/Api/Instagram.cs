@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Backgram.Core.Api
 {
@@ -59,7 +60,12 @@ namespace Backgram.Core.Api
             var authEndpoint = InstagramEndpoints.ToList().Find(t => t.Metadata.Name == "AuthAuthorize").Value;
 
             authEndpoint.InstagramData = instagramData;
-            return authEndpoint.Post();
+
+            var accessToken = new { access_token = "" };
+
+            var result = JsonConvert.DeserializeAnonymousType(authEndpoint.Post(), accessToken);
+
+            return result.access_token;
         }
 
         public string GetUserInfo(InstagramData instagramData)
