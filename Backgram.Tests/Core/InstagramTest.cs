@@ -11,6 +11,14 @@ namespace Backgram.Tests.Core
     [TestClass]
     public class InstagramTest
     {
+        public string BaseCatalogDir { get; set; }
+
+        [TestInitialize]
+        public void Setup()
+        {
+            BaseCatalogDir = AppDomain.CurrentDomain.BaseDirectory;
+        }
+
         [TestMethod]
         public void AssertIsNotNull()
         {
@@ -22,6 +30,8 @@ namespace Backgram.Tests.Core
         public void TestCatalogShouldHookAssembly()
         {
             Instagram instagram = new Instagram();
+            instagram.BaseCatalogDirectory = BaseCatalogDir;
+            instagram.ImportAssemblyCatalog();
             Assert.IsNotNull(instagram.InstagramEndpoints);
         }
 
@@ -29,6 +39,7 @@ namespace Backgram.Tests.Core
         public void TestCatalogShouldLoadClasses()
         {
             Instagram instagram = new Instagram();
+            instagram.BaseCatalogDirectory = BaseCatalogDir;
             instagram.ImportAssemblyCatalog();
 
             foreach (Lazy<IInstagramEndpoint, IInstagramEndPointData> endpoint in instagram.InstagramEndpoints)

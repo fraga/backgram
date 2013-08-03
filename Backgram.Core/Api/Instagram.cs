@@ -14,19 +14,15 @@ namespace Backgram.Core.Api
     public class Instagram
     {
         public InstagramData InstagramData { get; set; }
+        public string BaseCatalogDirectory { get; set; }
         [ImportMany]
         public IEnumerable<Lazy<IInstagramEndpoint, IInstagramEndPointData>> InstagramEndpoints;
-
-        public Instagram()
-        {
-            ImportAssemblyCatalog();
-        }
 
         public void ImportAssemblyCatalog()
         {
             try
             {
-                DirectoryCatalog catalog = new DirectoryCatalog(Path.Combine(AppDomain.CurrentDomain.BaseDirectory));
+                DirectoryCatalog catalog = new DirectoryCatalog(BaseCatalogDirectory);
                 CompositionContainer container = new CompositionContainer(catalog);
                 container.ComposeParts(this);
             }

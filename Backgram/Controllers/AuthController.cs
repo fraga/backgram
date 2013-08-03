@@ -57,6 +57,8 @@ namespace Backgram.Controllers
             };
 
             Instagram instagram = new Instagram();
+            instagram.BaseCatalogDirectory = AppDomain.CurrentDomain.RelativeSearchPath;
+            instagram.ImportAssemblyCatalog();
             return instagram.AuthorizeTokenRequest(data);
         }
 
