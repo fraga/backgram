@@ -23,8 +23,14 @@ namespace Backgram.Tests.InstagramApi
         public void TestGetShouldGetUsersFeed()
         {
             UsersSelfFeedEndpoint endpoint = new UsersSelfFeedEndpoint();
-            endpoint.InstagramData.AccessToken = "32714411.1fb234f.65b186d31bff441f924ef3386e65eb69"; 
+            endpoint.InstagramData.AccessToken = "32714411.1fb234f.65b186d31bff441f924ef3386e65eb69";
+            var meta = new { meta = new { code = "" } };
+            
             var result = endpoint.Get();
+
+            var parsedResult = Newtonsoft.Json.JsonConvert.DeserializeAnonymousType(result, meta);
+
+            Assert.AreEqual(parsedResult.meta.code, "200");
         }
     }
 }
