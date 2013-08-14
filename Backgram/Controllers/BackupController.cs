@@ -22,7 +22,7 @@ namespace Backgram.Controllers
         public ActionResult Do()
         {
             if (Session != null && (string.IsNullOrEmpty(Session.SessionID) || string.IsNullOrEmpty(Session["accessToken"].ToString())))
-                return View("");
+                return View("Error");
 
             InitializeInstagram();
 
