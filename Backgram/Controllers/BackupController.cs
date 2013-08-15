@@ -16,6 +16,10 @@ namespace Backgram.Controllers
         {
             _instagram = new Instagram();
             _instagram.BaseCatalogDirectory = AppDomain.CurrentDomain.RelativeSearchPath;
+            _instagram.InstagramData = new InstagramData
+            {
+                AccessToken = Session["accessToken"].ToString()
+            };
             _instagram.ImportAssemblyCatalog();
         }
 
