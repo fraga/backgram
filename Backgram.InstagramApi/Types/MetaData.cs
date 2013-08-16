@@ -17,11 +17,13 @@ namespace Backgram.InstagramApi.Types
         public MetaData()
         {
             pagination = new Pagination();
+            meta = new Meta();
         }
         /// <summary>
         /// <seealso cref="Pagination"/>
         /// </summary>
         public Pagination pagination { get; set; }
+        public Meta meta { get; set; }
     }
 
 

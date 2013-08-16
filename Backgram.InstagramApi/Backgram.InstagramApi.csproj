@@ -55,6 +55,7 @@
     <Compile Include="Types\InstagramDataCollection.cs" />
     <Compile Include="OAuthAuthorizeCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\Meta.cs" />
     <Compile Include="Types\MetaData.cs" />
     <Compile Include="Types\Pagination.cs" />
     <Compile Include="UsersSelfFeedEndpoint.cs" />
