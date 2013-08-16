@@ -33,35 +33,42 @@ namespace Backgram.InstagramApi
         protected bool FetchNewPage(Uri uri)
         {
             _page++;
-            _data.Add(new Func<string>(() =>
+            try
             {
-                try
-                {
-                    using (HttpClient client = new HttpClient())
-                    {
-                        var result = client.GetAsync(uri).Result.Content.ReadAsStringAsync().Result;
-
-                        var jsonPagination = JsonConvert.DeserializeObject<MetaData>(result);
-
-                        _lastUri = _nextUri;
-
-                        if (string.IsNullOrEmpty(jsonPagination.pagination.next_url))
-                            _nextUri = null;
-                        else
-                            _nextUri = new Uri(jsonPagination.pagination.next_url);
-
-                        return result;
-                    }
-                }
-                catch (HttpRequestException ex)
-                {
-                    throw;
-                }
-
-
-            })());
-
+                _data.Add(FetchData(uri));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
             return true;
+        }
+
+        protected string FetchData(Uri uri)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    var result = client.GetAsync(uri).Result.Content.ReadAsStringAsync().Result;
+
+                    var jsonPagination = JsonConvert.DeserializeObject<MetaData>(result);
+
+                    _lastUri = _nextUri;
+
+                    if (string.IsNullOrEmpty(jsonPagination.pagination.next_url))
+                        _nextUri = null;
+                    else
+                        _nextUri = new Uri(jsonPagination.pagination.next_url);
+
+                    return result;
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                return "";
+            }
         }
 
         public object Current
