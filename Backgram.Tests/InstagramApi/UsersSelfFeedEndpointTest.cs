@@ -1,6 +1,7 @@
 ﻿using Backgram.Core.Api;
 using Backgram.InstagramApi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Backgram.Tests.InstagramApi
             
             var result = endpoint.Get();
 
-            var parsedResult = Newtonsoft.Json.JsonConvert.DeserializeAnonymousType(result, meta);
+            var parsedResult = JsonConvert.DeserializeAnonymousType(result, meta);
 
             Assert.AreEqual(parsedResult.meta.code, "200");
         }
