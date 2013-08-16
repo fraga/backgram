@@ -80,6 +80,8 @@ namespace Backgram.InstagramApi
         public void Reset()
         {
             _page = -1;
+            _data = new List<string>();
+            _nextUri = _lastUri = null;
         }
     }
 }
