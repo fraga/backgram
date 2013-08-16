@@ -35,21 +35,29 @@ namespace Backgram.InstagramApi
             _page++;
             _data.Add(new Func<string>(() =>
             {
-                using (HttpClient client = new HttpClient())
+                try
                 {
-                    var result = client.GetAsync(uri).Result.Content.ReadAsStringAsync().Result;
+                    using (HttpClient client = new HttpClient())
+                    {
+                        var result = client.GetAsync(uri).Result.Content.ReadAsStringAsync().Result;
 
-                    var jsonPagination = JsonConvert.DeserializeObject<MetaData>(result);
+                        var jsonPagination = JsonConvert.DeserializeObject<MetaData>(result);
 
-                    _lastUri = _nextUri;
+                        _lastUri = _nextUri;
 
-                    if(string.IsNullOrEmpty(jsonPagination.pagination.next_url))
-                        _nextUri = null;
-                    else
-                        _nextUri = new Uri(jsonPagination.pagination.next_url);
+                        if (string.IsNullOrEmpty(jsonPagination.pagination.next_url))
+                            _nextUri = null;
+                        else
+                            _nextUri = new Uri(jsonPagination.pagination.next_url);
 
-                    return result;
+                        return result;
+                    }
                 }
+                catch (HttpRequestException ex)
+                {
+                    throw;
+                }
+
 
             })());
 
