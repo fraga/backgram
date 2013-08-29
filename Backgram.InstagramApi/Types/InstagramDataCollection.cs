@@ -65,6 +65,10 @@ namespace Backgram.InstagramApi
                     return result;
                 }
             }
+            catch (JsonSerializationException ex)
+            {
+                return "";
+            }
             catch (HttpRequestException ex)
             {
                 return "";
